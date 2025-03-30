@@ -1,0 +1,19 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.main{
+    @include m.text-character(12px,16px,v.$dark);
+    font-weight: 700;
+
+    span{
+        color: v.$orange-1;
+    }
+}
+
+@media screen and (min-width: v.$min-desktop) {
+    .main {
+        @include m.text-character(calcOutValue(20), calcOutValue(24), v.$dark);
+    }
+}

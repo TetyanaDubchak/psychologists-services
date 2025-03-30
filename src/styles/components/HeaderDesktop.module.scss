@@ -1,0 +1,28 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+@media screen and (max-width: v.$max-mobile){
+    .wrapper{
+        @include m.visually-hidden;
+    }
+}
+
+.wrapper{
+    @include m.flexibility(row,space-between,center);
+}
+
+.nav-wrapper{
+    @include m.flexibility(row, flex-start,center);
+    column-gap: calcOutValue(130);
+}
+
+.pages-wrapper{
+    @include m.flexibility(row, flex-start, center);
+    column-gap: calcOutValue(40);
+}
+
+.pages-item{
+    @include m.text-character(calcOutValue(16),calcOutValue(20), v.$dark);
+}

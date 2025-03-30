@@ -1,0 +1,23 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.wrapper{
+    display: flex;
+    column-gap: calcOutValue(8);
+}
+
+.log-btn{
+    @include m.auth-header(calcOutValue(1),#191A1533, transparent,calcOutValue(30));
+    @include m.text-character(calcOutValue(16), calcOutValue(20),v.$dark);
+    font-weight: 500;
+    padding: calcOutValue(14) calcOutValue(40);
+}
+
+.registr-btn{
+    @include m.auth-header(calcOutValue(1), v.$orange-1, v.$orange-1, calcOutValue(30));
+    @include m.text-character(calcOutValue(16), calcOutValue(20), v.$light);
+    font-weight: 500;
+    padding: calcOutValue(14) calcOutValue(40);
+}

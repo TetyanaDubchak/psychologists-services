@@ -1,0 +1,3 @@
+@function calcOutValue($inpx, $desingFontSize: 16) {
+    @return calc($inpx/$desingFontSize)*1rem;
+}

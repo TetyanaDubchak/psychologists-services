@@ -1,0 +1,16 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.wrapper {
+    padding: 14px;
+    border-bottom: 1px solid #191A151A;
+}
+
+@media screen and (min-width: v.$min-desktop) {
+    .wrapper{
+        padding: calcOutValue(24) calcOutValue(128);
+        border-bottom: calcOutValue(1) solid #191A151A;
+    }
+}

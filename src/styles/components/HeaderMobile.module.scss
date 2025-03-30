@@ -1,0 +1,49 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.wrapper{
+    @include m.flexibility(row,space-between,center);
+}
+
+.burger-btn{
+    @include m.flexibility(column,center,center);
+    gap:3px;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    background-color: transparent;
+
+    &::before{
+        content: '';
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: v.$orange-1;
+        border-radius: 1px;
+    }
+    &::after{
+        content: '';
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: v.$orange-1;
+        border-radius: 1px;
+    }
+}
+
+.burger{
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: v.$orange-1;
+    border-radius: 1px;    
+}
+
+@media screen and (min-width: v.$min-desktop) {
+    .wrapper {
+        @include m.visually-hidden;
+    }
+}
+
