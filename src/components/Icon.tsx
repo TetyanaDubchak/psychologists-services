@@ -8,7 +8,7 @@ export interface IconProps {
 export default function Icon({ type, clas = '' }: IconProps) {
   return (
     <svg className={clas}>
-      <use href={`/images/svg/sprite.svg#icon-${type}`}></use>
+      <use href={`/images/sprite.svg#icon-${type}`}></use>
     </svg>
   );
 }

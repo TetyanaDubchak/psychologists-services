@@ -2,3 +2,49 @@
 @use '../../styles/variables' as v;
 
 @import '../function.scss';
+
+.wrapper{
+    @include m.flexibility(column, flex-start,flex-start);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    background-color: v.$light;
+
+}
+
+.top-wrapper{
+    @include m.flexibility(row,space-between,center);
+    padding: 14px;
+    width: 100%;
+    border-bottom: 1px solid #191A151A;
+}
+
+.close-btn{
+    width: 20px;
+    padding: 0;
+    background-color: transparent;
+}
+
+.middle-wrapper{
+    padding: 24px 14px;
+    width: 100%;
+}
+
+.pages-wrapper{
+    @include m.flexibility(column, flex-start,flex-start);
+    row-gap: 20px;
+}
+
+.pages-item{
+ @include m.text-character(12px, 16px, v.$dark);
+}
+
+.bottom-wrapper{
+    margin-top: auto;
+    width: 100%;
+    padding: 14px;
+    border-top: 1px solid #191A151A;
+}

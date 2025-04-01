@@ -4,8 +4,12 @@
 @import '../function.scss';
 
 .wrapper {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
     padding: 14px;
     border-bottom: 1px solid #191A151A;
+    background-color: v.$light;
 }
 
 @media screen and (min-width: v.$min-desktop) {

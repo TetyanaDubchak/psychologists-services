@@ -1,0 +1,37 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.title{
+    @include m.text-character(40px,42px,v.$dark);
+    font-weight: 600;
+    margin-bottom: 10px;
+
+    span{
+        color: v.$orange-1;
+        font-style: italic;
+    }
+}
+
+.subtitle{
+    @include m.text-character(10px, 12px, v.$dark);
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.start-btn{
+    @include m.text-character(10px,12px,v.$light);
+    @include m.flexibility(row,center,center);
+    @include m.auth-header(1px, v.$orange-1, v.$orange-1, 16px);
+    column-gap: 10px;
+    margin: 0 auto;
+    padding: 10px 26px;
+    font-weight: 500;
+    
+
+    svg{
+        width: 10px;
+        height: 10px;
+    }
+}

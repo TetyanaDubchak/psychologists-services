@@ -1,0 +1,88 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.wrapper{
+    @include m.flexibility(row, flex-end,flex-start);
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.photo-wrapper{
+    position: relative;
+    width: 80%;
+
+    &::before{
+        position: absolute;
+        top: 50%;
+        transform: translate(-80%, -50%) rotate(-15deg);
+        content: '';
+        display: block;
+        width: 24px;
+        height: 24px;
+        border-radius: 5px;
+        background-color: v.$green;
+        background-image: url(/images/question.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 10px;
+    }
+    &::after{
+        position: absolute;
+        top: 10%;
+        right: 0;
+        transform: translateX(80%) rotate(15deg);
+        content: '';
+        display: block;
+        width: 24px;
+        height: 24px;
+        border-radius: 5px;
+        background-color: v.$orange-3;
+        background-image: url(/images/users.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 18px;
+    }
+}
+
+.picture{
+    width: 100%;
+    height: auto;
+}
+
+.static-wrapper{
+    @include m.flexibility(row, center, center);
+    position: absolute;
+    left: 0;
+    bottom: 10%;
+    column-gap: 8px;
+    width: 180px;
+    border-radius: 10px;
+    background-color: v.$orange-1;
+    padding: 16px;
+}
+
+.check-wrapper{
+    @include m.flexibility(row,center,center);
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    background-color: v.$light;
+
+    svg{
+        width: 14px;
+        height: 14px;
+    }
+}
+
+.text{
+    @include m.text-character(8px,100%, #FBFBFB80);
+    margin-bottom: 4px;
+}
+
+.quantity{
+    @include m.text-character(12px, 100%, v.$light);
+    font-weight: 700;
+}

@@ -1,0 +1,10 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.wrapper{
+    @include m.flexibility(column, center,center);
+    padding: 74px 64px 30px 64px  ;
+    height: 100vh;
+}
