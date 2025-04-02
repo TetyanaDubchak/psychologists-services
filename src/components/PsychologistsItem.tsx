@@ -1,36 +1,100 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Image from 'next/image';
+import s from '@/styles/components/PsychologistsItem.module.scss';
+import Icon from './Icon';
+import { Reviews } from '@/components/ReadMoreBlock';
+import ReadMoreBlock from './ReadMoreBlock';
 
-import s from '@/styles/components/PsychologistsList.module.scss';
+export interface Psychologist {
+  id: string;
+  name: string;
+  avatar_url: string;
+  experience: string;
+  reviews?: Reviews[];
+  price_per_hour: number;
+  rating: number;
+  license: string;
+  specialization: string;
+  initial_consultation: string;
+  about: string;
+}
 
 export interface PsychologistsItemProps {
-  psychologist: {
-    id: string;
-    name: 'Dr. Sarah Davis';
-    avatar_url: 'https://ftp.goit.study/img/avatars/23.jpg';
-    experience: '12 years';
-    reviews: [
-      {
-        reviewer: 'Michael Brown';
-        rating: 4.5;
-        comment: 'Dr. Davis has been a great help in managing my depression. Her insights have been valuable.';
-      },
-      {
-        reviewer: 'Linda Johnson';
-        rating: 5;
-        comment: "I'm very satisfied with Dr. Davis's therapy. She's understanding and empathetic.";
-      },
-    ];
-    price_per_hour: 120;
-    rating: 4.75;
-    license: 'Licensed Psychologist (License #67890)';
-    specialization: 'Depression and Mood Disorders';
-    initial_consultation: 'Free 45-minute initial consultation';
-    about: 'Dr. Sarah Davis is a highly experienced and licensed psychologist specializing in Depression and Mood Disorders. With 12 years of practice, she has helped numerous individuals overcome their depression and regain control of their lives. Dr. Davis is known for her empathetic and understanding approach to therapy, making her clients feel comfortable and supported throughout their journey to better mental health.';
-  };
+  psychologist: Psychologist;
 }
 
 export default function PsychologistsItem({
   psychologist,
 }: PsychologistsItemProps) {
-  return <li></li>;
+  const [isExpanded, setIsExpanded] = useState(false);
+  const {
+    name,
+    avatar_url,
+    experience,
+    reviews,
+    price_per_hour,
+    rating,
+    license,
+    specialization,
+    initial_consultation,
+    about,
+  } = psychologist;
+  return (
+    <li className={s['main-wrapper']}>
+      <div className={s['avatar-wrapper']}>
+        <div className={s['photo-wrapper']}>
+          <Image
+            src={avatar_url}
+            width={90}
+            height={90}
+            alt="psychologist photo"
+          />
+        </div>
+      </div>
+      <div className={s['information-wrapper']}>
+        <div className={s['top-wrapper']}>
+          <h3 className={s['name-wrapper']}>
+            Psychologist <span>{name}</span>
+          </h3>
+          <div className={s['information-top-wrapper']}>
+            <div className={s['rating-wrapper']}>
+              <Icon type="star" />
+              Rating: {rating}
+            </div>
+            <div className={s['price-wrapper']}>
+              Price / 1 hour: <span>{price_per_hour}$</span>
+            </div>
+            <button className={s['like-btn']}>
+              <Icon clas={s.heart} type="heart" />
+            </button>
+          </div>
+        </div>
+        <ul className={s['characteristics-list']}>
+          <li className={s['characteristics-item']}>
+            Experience: <span>{experience}</span>
+          </li>
+          <li className={s['characteristics-item']}>
+            License: <span>{license}</span>
+          </li>
+          <li className={s['characteristics-item']}>
+            Specialization: <span>{specialization}</span>
+          </li>
+          <li className={s['characteristics-item']}>
+            Initial_consultation: <span>{initial_consultation}</span>
+          </li>
+        </ul>
+        <p className={s['about-text']}>{about}</p>
+        {!isExpanded && (
+          <button
+            onClick={() => setIsExpanded(true)}
+            type="button"
+            className={s['read-btn']}
+          >
+            Read more
+          </button>
+        )}
+        {isExpanded && <ReadMoreBlock reviews={reviews ?? []} />}
+      </div>
+    </li>
+  );
 }

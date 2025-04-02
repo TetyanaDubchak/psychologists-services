@@ -2,3 +2,14 @@
 @use '../../styles/variables' as v;
 
 @import '../function.scss';
+
+.wrapper{
+    padding: 134px 22px 50px 22px;
+    background-color: v.$light-1;
+}
+
+.list{
+    @include m.flexibility(column,flex-start,center);
+    row-gap: 16px;
+    width: 100%;
+}

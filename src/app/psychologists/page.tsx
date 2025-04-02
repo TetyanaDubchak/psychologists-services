@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { getPsychologistsList } from '@/lib/api';
 import { usePsychologistsList } from '@/lib/store';
+import PsychologistsList from '@/components/PsychologistsList';
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
@@ -9,10 +10,13 @@ export default function Page() {
 
   useEffect(() => {
     const getList = async () => {
+      setIsLoading(true);
       try {
-        setIsLoading(true);
         const data = await getPsychologistsList();
-        setPsychologistsList(data);
+        console.log('User data:', data);
+        if (data) {
+          setPsychologistsList(data);
+        }
       } catch (error) {
         console.log(error);
         throw new Error();
@@ -22,5 +26,5 @@ export default function Page() {
     };
     getList();
   }, [setPsychologistsList]);
-  return <div>List</div>;
+  return <div>{isLoading ? <p>Loading...</p> : <PsychologistsList />}</div>;
 }

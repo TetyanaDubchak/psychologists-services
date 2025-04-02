@@ -1,0 +1,10 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.button{
+    @include m.auth-header(1px, v.$orange-1,v.$orange-1,16px);
+    @include m.text-character(8px,10px, v.$light);
+    padding: 8px 24px;
+}

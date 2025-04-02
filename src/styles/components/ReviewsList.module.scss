@@ -1,0 +1,49 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.list{
+    @include m.flexibility(column,flex-start,flex-start);
+    row-gap: 12px;
+    margin-bottom: 20px;
+}
+
+.item{
+    @include m.flexibility(column,flex-start,flex-start);
+    row-gap: 8px;
+}
+
+.top-wrapper{
+    @include m.flexibility(row,flex-start,flex-start);
+    column-gap: 12px;
+}
+
+.avatar-wrapper{
+    @include m.flexibility(row,center,center);
+    @include m.text-character(10px,10px,v.$orange-1);
+    width: 22px;
+    height: 22px;
+    background-color: #FC832C33;
+    border-radius: 50%;
+}
+
+.name{
+    @include m.text-character(8px,10px,v.$dark);
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.rating{
+    @include m.text-character(8px,10px,v.$dark);
+    font-weight: 500;
+    svg{
+        width: 8px;
+        height: 8px;
+        margin-right: 4px;
+    }
+}
+
+.comment{
+    @include m.text-character(8px,10px,#191A1580);
+}
