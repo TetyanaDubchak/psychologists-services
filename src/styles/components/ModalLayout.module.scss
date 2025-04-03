@@ -1,0 +1,53 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.backdrop{
+    position: fixed;
+    z-index: 16;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #191A1599;
+}
+
+.modal{
+    position: relative;
+    background-color: v.$light;
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.title{
+    @include m.text-character(20px,24px,v.$dark);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.close-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    background-color: transparent;
+    svg{
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.submit-btn{
+    @include m.auth-header(1px, v.$orange-1, v.$orange-1,16px);
+    @include m.text-character(8px,10px, v.$light);
+    font-weight: 500;
+    margin-top: 20px;
+    padding: 8px;
+    width: 100%;
+}

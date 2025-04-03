@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Logo from './Logo';
 import AuthHeaderButton from './AuthHeaderButton';
 import s from '../styles/components/HeaderDesktop.module.scss';
@@ -13,8 +14,12 @@ export default function HeaderDesktop() {
       <nav className={s['nav-wrapper']}>
         <Logo />
         <ul className={s['pages-wrapper']}>
-          <li className={s['pages-item']}>Home</li>
-          <li className={s['pages-item']}>Psychologists</li>
+          <li className={s['pages-item']}>
+            <Link href="/">Home</Link>
+          </li>
+          <li className={s['pages-item']}>
+            <Link href="/psychologists">Psychologists</Link>
+          </li>
         </ul>
       </nav>
       <AuthHeaderButton />

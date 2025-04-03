@@ -1,5 +1,6 @@
+'use client';
 import React from 'react';
-
+import { useModalForm } from '@/lib/store';
 import s from '@/styles/components/AuthHeaderButton.module.scss';
 
 export interface AuthHeaderButtonProps {
@@ -7,10 +8,16 @@ export interface AuthHeaderButtonProps {
 }
 
 export default function AuthHeaderButton() {
+  const { isLoginFormOpen, setIsLoginFormOpen } = useModalForm();
+  console.log(isLoginFormOpen);
   return (
     <ul className={s['wrapper']}>
       <li>
-        <button className={s['log-btn']} type="button">
+        <button
+          onClick={() => setIsLoginFormOpen()}
+          className={s['log-btn']}
+          type="button"
+        >
           Log In
         </button>
       </li>

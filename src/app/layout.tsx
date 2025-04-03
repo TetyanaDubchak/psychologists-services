@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import 'modern-normalize';
 import '@/styles/main.scss';
 import Header from '@/components/Header';
+import LoginForm from '@/components/LoginForm';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body>
         <Header />
         {children}
+        <LoginForm />
       </body>
     </html>
   );

@@ -30,3 +30,10 @@
     background-color: $background;
     border-radius: $radius;
 }
+
+@mixin inputs($padding1,$padding2, $border-width, $border-color, $border-radius){
+    padding: $padding1 $padding2;
+    border: $border-width solid $border-color;
+    border-radius: $border-radius;
+    width: 100%;
+}

@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import s from '../styles/components/MobileMenu.module.scss';
 import Logo from './Logo';
-import Icon from './Icon';
+import Link from 'next/link';
 import { duration, defaultStyle, transitionStyles } from '@/lib/transition';
 import {
   handleBackdropClick,
@@ -47,8 +47,12 @@ export default function MobileMenu({ in: inProp, onClose }: MobileMenuProps) {
           </div>
           <div className={s['middle-wrapper']}>
             <ul className={s['pages-wrapper']}>
-              <li className={s['pages-item']}>Home</li>
-              <li className={s['pages-item']}>Psychologists</li>
+              <li className={s['pages-item']}>
+                <Link href="/">Home</Link>
+              </li>
+              <li className={s['pages-item']}>
+                <Link href="/psychologists">Psychologists</Link>
+              </li>
             </ul>
           </div>
           <div className={s['bottom-wrapper']}>
