@@ -61,21 +61,24 @@ export default function LoginForm() {
         continue your search for a psychologist.
       </p>
       <form className={s['form']} onSubmit={handleSubmit(onSubmit)}>
-        <input
-          className={s['field']}
-          type="email"
-          placeholder="Email"
-          {...register('email')}
-        />
-        <p>{errors.email?.message}</p>
-        <div className={s['password-wrapper']}>
+        <div className={s['field-wrapper']}>
+          <input
+            className={s['field']}
+            type="email"
+            placeholder="Email"
+            {...register('email')}
+          />
+          <p className={s['error-text']}>{errors.email?.message}</p>
+        </div>
+
+        <div className={s['field-wrapper']}>
           <input
             className={s['field']}
             type={showPassword ? 'text' : 'password'}
             placeholder="Password"
             {...register('password')}
           />
-          <p>{errors.password?.message}</p>
+          <p className={s['error-text']}>{errors.password?.message}</p>
           <button
             onClick={togglePasswordVisibility}
             className={s['eye-btn']}

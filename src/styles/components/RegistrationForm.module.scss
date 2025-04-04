@@ -1,0 +1,65 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.info-text {
+    @include m.text-character(8px, 10px, #191A1580);
+    margin-bottom: 20px;
+    width: 220px;
+}
+
+.form {
+    @include m.flexibility(column, center, center);
+    row-gap: 8px;
+    width: 220px;
+}
+
+.field-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.field {
+    @include m.inputs(8px, 10px, 1px, #191A151A, 6px);
+    @include m.text-character(8px, 10px, v.$dark);
+    background-color: transparent;
+    margin-bottom: 2px;
+
+    &::placeholder {
+        color: v.$dark;
+    }
+}
+
+.error-text{
+    @include m.text-character(6px,8px, v.$orange-1);
+    padding-left: 2px;
+    height: 8px;
+}
+
+.eye-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    background-color: transparent;
+
+    svg {
+        width: 100%;
+        height: 100%;
+        fill: transparent;
+        stroke: v.$dark;
+    }
+}
+
+.submit-btn {
+    @include m.auth-header(1px, v.$orange-1, v.$orange-1, 16px);
+    @include m.text-character(8px, 10px, v.$light);
+    font-weight: 500;
+    margin-top: 12px;
+    padding: 8px;
+    width: 100%;
+}
+

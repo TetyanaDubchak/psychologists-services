@@ -8,8 +8,8 @@ export interface AuthHeaderButtonProps {
 }
 
 export default function AuthHeaderButton() {
-  const { isLoginFormOpen, setIsLoginFormOpen } = useModalForm();
-  console.log(isLoginFormOpen);
+  const { setIsLoginFormOpen, setIsRegistrationFormOpen } = useModalForm();
+
   return (
     <ul className={s['wrapper']}>
       <li>
@@ -22,7 +22,11 @@ export default function AuthHeaderButton() {
         </button>
       </li>
       <li>
-        <button className={s['registr-btn']} type="button">
+        <button
+          onClick={() => setIsRegistrationFormOpen()}
+          className={s['registr-btn']}
+          type="button"
+        >
           Registration
         </button>
       </li>

@@ -15,18 +15,26 @@
     width: 220px;
 }
 
-.password-wrapper{
+.field-wrapper {
     position: relative;
     width: 100%;
 }
 
-.field{
-    @include m.inputs(8px,10px, 1px, #191A151A,6px);
-    @include m.text-character(8px,10px,v.$dark);
+.field {
+    @include m.inputs(8px, 10px, 1px, #191A151A, 6px);
+    @include m.text-character(8px, 10px, v.$dark);
     background-color: transparent;
-    &::placeholder{
+    margin-bottom: 2px;
+
+    &::placeholder {
         color: v.$dark;
     }
+}
+
+.error-text {
+    @include m.text-character(6px, 8px, v.$orange-1);
+    padding-left: 2px;
+    height: 8px;
 }
 
 .eye-btn{
