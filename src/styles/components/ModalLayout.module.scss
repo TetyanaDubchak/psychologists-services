@@ -26,6 +26,7 @@
 .title{
     @include m.text-character(20px,24px,v.$dark);
     font-weight: 500;
+    max-width: 240px;
     margin-bottom: 10px;
 }
 

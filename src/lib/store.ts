@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { Psychologist } from "@/components/PsychologistsItem";
 
-interface PsychologistsState {
+interface PsychologistsListState {
   psychologistsList: Psychologist[];
   setPsychologistsList: (list: Psychologist[]) => void;
 }
@@ -18,7 +18,13 @@ interface ModalFormState {
   setIsMeetingFormClose: () => void;
 }
 
-export const usePsychologistsList = create<PsychologistsState>((set) => ({
+interface PsychologistsForMeetingsState {
+  psychologistsClicked: Psychologist | null;
+  setPsychologistsClicked: (item: Psychologist) => void;
+}
+
+
+export const usePsychologistsList = create<PsychologistsListState>((set) => ({
     psychologistsList: [],
         
     setPsychologistsList:(list)=> set(()=>({psychologistsList: list})),
@@ -37,4 +43,9 @@ export const useModalForm = create<ModalFormState>((set) => ({
   
   setIsMeetingFormOpen: () => set(() => ({ isMeetingFormOpen: true })),
   setIsMeetingFormClose:()=> set(()=>({isMeetingFormOpen: false})),
+}))
+
+export const usePsychologistsForMeetings= create<PsychologistsForMeetingsState>((set) => ({
+    psychologistsClicked: null,
+    setPsychologistsClicked:(item)=> set(()=>({psychologistsClicked: item})),
 }))

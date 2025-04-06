@@ -1,13 +1,15 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { schemaMeeting } from '@/lib/schema';
 import s from '../styles/components/MeetingForm.module.scss';
 import ModalLayout from './ModalLayout';
-import { useModalForm } from '@/lib/store';
+import { useModalForm, usePsychologistsForMeetings } from '@/lib/store';
 import Icon from './Icon';
+import TimeInput from './TimeInput';
 
 export interface MeetingFormProps {
   children: React.ReactNode;
@@ -17,6 +19,7 @@ type FormData = yup.InferType<typeof schemaMeeting>;
 
 export default function MeetingForm() {
   const { isMeetingFormOpen, setIsMeetingFormClose } = useModalForm();
+  const { psychologistsClicked } = usePsychologistsForMeetings();
 
   const closeModal = () => {
     setIsMeetingFormClose();
@@ -62,6 +65,21 @@ export default function MeetingForm() {
         short form below to book your personal appointment with a professional
         psychologist. We guarantee confidentiality and respect for your privacy.
       </p>
+      <div className={s['psychologists-wrapper']}>
+        <Image
+          src={psychologistsClicked?.avatar_url}
+          alt="psychologist photo"
+          width={16}
+          height={16}
+          className={s['psychologists-picture']}
+        />
+        <div>
+          <p className={s['psychologists-top-title']}>Your psychologists</p>
+          <p className={s['psychologists-name']}>
+            {psychologistsClicked?.name}
+          </p>
+        </div>
+      </div>
       <form className={s['form']} onSubmit={handleSubmit(onSubmit)}>
         <div className={s['field-wrapper']}>
           <input
@@ -74,17 +92,16 @@ export default function MeetingForm() {
         </div>
         <div className={s['extra-wrapper']}>
           <div className={s['field-wrapper']}>
-            <input className={s['field']} type="text" {...register('phone')} />
+            <input
+              className={`${s.field} ${s['phone-field']}`}
+              type="text"
+              {...register('phone')}
+            />
             <p className={s['error-text']}>{errors.phone?.message}</p>
-            <span>+380</span>
+            <span className={s['phone-start']}>+380</span>
           </div>
           <div className={s['field-wrapper']}>
-            <input
-              className={s['field']}
-              type="text"
-              placeholder="00:00"
-              {...register('times')}
-            />
+            <TimeInput register={register('times')} />
             <p className={s['error-text']}>{errors.times?.message}</p>
           </div>
         </div>
@@ -98,9 +115,8 @@ export default function MeetingForm() {
           <p className={s['error-text']}>{errors.email?.message}</p>
         </div>
         <div className={s['field-wrapper']}>
-          <input
-            className={s['field']}
-            type="text"
+          <textarea
+            className={`${s.field} ${s['comment-field']}`}
             placeholder="Comment"
             {...register('comment')}
           />

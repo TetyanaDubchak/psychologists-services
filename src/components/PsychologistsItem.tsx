@@ -28,6 +28,7 @@ export default function PsychologistsItem({
 }: PsychologistsItemProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const {
+    id,
     name,
     avatar_url,
     experience,
@@ -93,7 +94,7 @@ export default function PsychologistsItem({
             Read more
           </button>
         )}
-        {isExpanded && <ReadMoreBlock reviews={reviews ?? []} />}
+        {isExpanded && <ReadMoreBlock idValue={id} reviews={reviews ?? []} />}
       </div>
     </li>
   );

@@ -1,5 +1,5 @@
 
- const handleBackdropClick = (e: React.MouseEvent<HTMLButtonElement>, onClose: () => void):void => {
+ const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>, onClose: () => void):void => {
         if (e.target === e.currentTarget) {
             onClose();
         }

@@ -21,8 +21,8 @@ export const schemaRegistration = yup.object({
 
 export const schemaMeeting = yup.object({
   name: yup.string().required("Name is required").min(2, "Name must be at least 2 characters"),
-  phone: yup.number().required("Phone is required").min(9, "Phone must be 9 characters").max(9, "Phone must be 9 characters"),
+  phone: yup.string().required("Phone is required").matches(/^\d{9}$/, "Phone must be exactly 9 digits"),
   email: yup.string().email("Invalid email").required("Email is required"),
-  times: yup.number(),
+  times: yup.string(),
   comment: yup.string()
 }).required();

@@ -2,7 +2,6 @@
 import { Transition } from 'react-transition-group';
 import React, { useEffect, useRef } from 'react';
 import s from '../styles/components/ModalLayout.module.scss';
-import Icon from './Icon';
 import Image from 'next/image';
 import { duration, defaultStyle, transitionStyles } from '@/lib/transition';
 import {
@@ -27,12 +26,15 @@ export default function ModalLayout({
 }: ModalLayoutProps) {
   const nodeRef = useRef(null);
 
+  useEffect(() => {});
+
   return (
     <Transition nodeRef={nodeRef} in={inProp} timeout={duration}>
       {(state) => (
         <div
           className={s.backdrop}
           ref={nodeRef}
+          onClick={(e) => handleBackdropClick(e, onClose)}
           style={{ ...defaultStyle, ...transitionStyles[state] }}
         >
           <div className={s['modal']}>

@@ -1,0 +1,90 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.info-text{
+    @include m.text-character(8px,10px,#191A1580);
+    margin-bottom: 20px;
+    width: 240px;
+}
+
+.psychologists-wrapper{
+    @include m.flexibility(row,flex-start,center);
+    column-gap: 8px;
+    margin-bottom: 20px;
+}
+
+.psychologists-picture{
+    width: 22px;
+    height: 22px;
+    border-radius: 8px;
+}
+
+.psychologists-top-title{
+    @include m.text-character(6px,8px,v.$light-2);
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.psychologists-name{
+    @include m.text-character(8px, 12px, v.$dark);
+    font-weight: 500;
+}
+
+.form {
+    @include m.flexibility(column, center, center);
+    row-gap: 8px;
+    width: 240px;
+}
+
+.field-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.field {
+    @include m.inputs(8px, 10px, 1px, #191A151A, 6px);
+    @include m.text-character(8px, 10px, v.$dark);
+    background-color: transparent;
+    margin-bottom: 2px;
+
+    &::placeholder {
+        color: v.$dark;
+    }
+}
+
+.phone-field{
+    padding-left: 30px;
+}
+
+.comment-field{
+    height: 58px;
+}
+
+.error-text {
+    @include m.text-character(6px, 8px, v.$orange-1);
+    padding-left: 2px;
+    height: 8px;
+}
+
+.extra-wrapper{
+    @include m.flexibility(row,space-between,center);
+    column-gap: 4px;
+}
+
+.phone-start{
+    @include m.text-character(8px,10px,v.$dark);
+    position: absolute;
+    left: 8px;
+    top: 8.5px;
+}
+
+.submit-btn {
+    @include m.auth-header(1px, v.$orange-1, v.$orange-1, 16px);
+    @include m.text-character(8px, 10px, v.$light);
+    font-weight: 500;
+    margin-top: 12px;
+    padding: 8px;
+    width: 100%;
+}
