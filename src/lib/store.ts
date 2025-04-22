@@ -23,6 +23,17 @@ interface PsychologistsForMeetingsState {
   setPsychologistsClicked: (item: Psychologist) => void;
 }
 
+interface User {
+  uid: string;
+  name: string;
+  email: string;
+}
+
+interface UserStore {
+  user: User | null;
+  setUser: (user: User) => void;
+  clearUser: () => void;
+}
 
 export const usePsychologistsList = create<PsychologistsListState>((set) => ({
     psychologistsList: [],
@@ -49,3 +60,9 @@ export const usePsychologistsForMeetings= create<PsychologistsForMeetingsState>(
     psychologistsClicked: null,
     setPsychologistsClicked:(item)=> set(()=>({psychologistsClicked: item})),
 }))
+
+export const useUserStore = create<UserStore>((set) => ({
+  user: null,
+  setUser: (user) => set({ user }),
+  clearUser: () => set({ user: null }),
+}));

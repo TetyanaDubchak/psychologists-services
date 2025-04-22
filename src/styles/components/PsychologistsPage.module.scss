@@ -3,8 +3,7 @@
 
 @import '../function.scss';
 
-.list{
-    @include m.flexibility(column,flex-start,center);
-    row-gap: 16px;
-    width: 100%;
+.wrapper {
+    padding: 80px 22px 50px 22px;
+    background-color: v.$light-1;
 }

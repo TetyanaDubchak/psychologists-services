@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import s from '../styles/components/MobileMenu.module.scss';
 import Logo from './Logo';
+import { useUserStore } from '@/lib/store';
 import Link from 'next/link';
 import { duration, defaultStyle, transitionStyles } from '@/lib/transition';
 import {
@@ -13,6 +14,7 @@ import {
   handleUnBlockBody,
 } from '@/lib/extraFunc';
 import AuthHeaderButton from './AuthHeaderButton';
+import LogoutBlock from './LogoutBlock';
 
 interface MobileMenuProps {
   in: boolean;
@@ -21,7 +23,7 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ in: inProp, onClose }: MobileMenuProps) {
   const nodeRef = useRef(null);
-
+  const { user } = useUserStore();
   useEffect(() => {
     handleEscapeClick(onClose);
   }, [onClose]);
@@ -56,7 +58,7 @@ export default function MobileMenu({ in: inProp, onClose }: MobileMenuProps) {
             </ul>
           </div>
           <div className={s['bottom-wrapper']}>
-            <AuthHeaderButton />
+            {user ? <LogoutBlock /> : <AuthHeaderButton />}
           </div>
         </div>
       )}

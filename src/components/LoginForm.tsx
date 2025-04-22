@@ -7,6 +7,7 @@ import { schemaLogin } from '@/lib/schema';
 import s from '../styles/components/LoginForm.module.scss';
 import ModalLayout from './ModalLayout';
 import { useModalForm } from '@/lib/store';
+import { login } from '@/lib/apiAuth';
 import Icon from './Icon';
 
 export interface LoginFormProps {
@@ -18,6 +19,7 @@ type FormData = yup.InferType<typeof schemaLogin>;
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const { isLoginFormOpen, setIsLoginFormClose } = useModalForm();
+
   const closeModal = () => {
     setIsLoginFormClose();
   };
@@ -29,24 +31,14 @@ export default function LoginForm() {
   } = useForm<FormData>({
     resolver: yupResolver(schemaLogin),
   });
+
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error('Login failed');
-      }
-
-      const result = await response.json();
-      console.log('Login successful', result);
-
+      await login(data.email, data.password);
+      console.log('Login successful');
       closeModal();
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Login error:', error);
     }
   };
 

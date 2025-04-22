@@ -6,5 +6,24 @@
 .wrapper{
     @include m.flexibility(column, center,center);
     padding: 74px 64px 30px 64px  ;
-    height: 100vh;
+    min-height: 100vh;
+
+    &::after{
+        content: '';
+        display: block;
+        width: calcOutValue(470);
+        height: calcOutValue(470);
+        background-color: v.$orange-1;
+        border-radius: 50%;
+        backdrop-filter: blur(calcOutValue(1000));
+    }
+    
+}
+
+@media screen and (min-width: v.$min-desktop) {
+    .wrapper {
+        @include m.flexibility(row-reverse, center,center);
+        gap: calcOutValue(24);
+        padding: calcOutValue(174) calcOutValue(128) calcOutValue(100) calcOutValue(128)  ;
+    }
 }

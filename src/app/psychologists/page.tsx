@@ -1,8 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { getPsychologistsList } from '@/lib/api';
+import { getPsychologistsList } from '@/lib/apiDatabase';
 import { usePsychologistsList } from '@/lib/store';
-import PsychologistsList from '@/components/PsychologistsList';
+import PsychologistsPage from '@/components/PsychologistsPage';
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +13,7 @@ export default function Page() {
       setIsLoading(true);
       try {
         const data = await getPsychologistsList();
-        console.log('User data:', data);
+        // console.log('User data:', data);
         if (data) {
           setPsychologistsList(data);
         }
@@ -26,5 +26,5 @@ export default function Page() {
     };
     getList();
   }, [setPsychologistsList]);
-  return <div>{isLoading ? <p>Loading...</p> : <PsychologistsList />}</div>;
+  return <>{isLoading ? <p>Loading...</p> : <PsychologistsPage />}</>;
 }

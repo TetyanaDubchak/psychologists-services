@@ -86,3 +86,59 @@
     @include m.text-character(12px, 100%, v.$light);
     font-weight: 700;
 }
+
+@media screen and (min-width: v.$min-desktop) {
+    .wrapper{
+        width: calcOutValue(610);
+        margin-bottom: 0;
+    }
+
+    .photo-wrapper{
+        width: calcOutValue(464);
+
+        &::before{
+            top: calcOutValue(184);
+            transform: translate(calcOutValue(-36), 0) rotate(-15deg);
+            width: calcOutValue(40);
+            height: calcOutValue(40);
+            border-radius: calcOutValue(10);
+            background-size: calcOutValue(17);
+        }
+        &::after{
+            top: calcOutValue(38);
+            transform: translateX(calcOutValue(44)) rotate(15deg);
+            width: calcOutValue(48);
+            height: calcOutValue(48);
+            border-radius: calcOutValue(10);
+            background-size: calcOutValue(20);
+        }
+    }
+
+    .static-wrapper{
+        bottom: calcOutValue(76);
+        column-gap: calcOutValue(16);
+        width: calcOutValue(312);
+        border-radius: calcOutValue(20);
+        padding: calcOutValue(32);
+    }
+
+    .check-wrapper{
+        width: calcOutValue(54);
+        height: calcOutValue(54);
+        border-radius: calcOutValue(12);
+
+        svg{
+            width: calcOutValue(30);
+            height: calcOutValue(30);
+        }
+    }
+
+    .text{
+        font-size: calcOutValue(14);
+        margin-bottom: calcOutValue(8);
+    }
+
+    .quantity{
+        font-size: calcOutValue(24);
+    }
+}

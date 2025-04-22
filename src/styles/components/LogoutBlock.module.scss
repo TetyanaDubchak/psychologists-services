@@ -1,0 +1,75 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.wrapper{
+    @include m.flexibility(row, space-between, center);
+}
+
+.icon{
+    width: 24px;
+    height: 24px;
+}
+
+.icon-box{
+    @include m.flexibility(row,center,center);
+    background-color: v.$orange-1;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.user-wrapper{
+    @include m.flexibility(row, flex-start, center);
+    gap: 16px;
+}
+
+.user-name{
+    @include m.text-character(16px,20px, v.$dark);
+    font-weight: 500;
+}
+
+.logout-btn{
+    @include m.auth-header(1px, #191A1533, transparent,30px);
+    @include m.text-character(16px,20px,v.$dark);
+    padding: 14px 38px;
+    font-weight: 500;
+}
+
+@media screen and (min-width: v.$min-desktop) {
+    .wrapper {
+        @include m.flexibility(row, space-between, center);
+        gap: calcOutValue(28);
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .icon-box {
+        @include m.flexibility(row, center, center);
+        background-color: v.$orange-1;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+
+    .user-wrapper {
+        @include m.flexibility(row, flex-start, center);
+        gap: 16px;
+    }
+
+    .user-name {
+        @include m.text-character(16px, 20px, v.$dark);
+        font-weight: 500;
+    }
+
+    .logout-btn {
+        @include m.auth-header(1px, #191A1533, transparent, 30px);
+        @include m.text-character(16px, 20px, v.$dark);
+        padding: 14px 38px;
+        font-weight: 500;
+    }
+}

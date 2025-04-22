@@ -7,6 +7,7 @@ import { schemaRegistration } from '@/lib/schema';
 import s from '../styles/components/RegistrationForm.module.scss';
 import ModalLayout from './ModalLayout';
 import { useModalForm } from '@/lib/store';
+import { registration } from '@/lib/apiAuth';
 import Icon from './Icon';
 
 export interface RegistrationFormProps {
@@ -30,24 +31,15 @@ export default function RegistrationForm() {
   } = useForm<FormData>({
     resolver: yupResolver(schemaRegistration),
   });
+
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        throw new Error('Login failed');
-      }
-
-      const result = await response.json();
-      console.log('Login successful', result);
-
+      await registration(data.email, data.password, data.name);
+      console.log('Data', data);
+      console.log('Registration successful');
       closeModal();
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Registration error:', error);
     }
   };
 
