@@ -5,6 +5,8 @@ import Icon from './Icon';
 import { Reviews } from '@/components/ReadMoreBlock';
 import ReadMoreBlock from './ReadMoreBlock';
 
+import FavoriteButton from './FavoriteButton';
+
 export interface Psychologist {
   id: string;
   name: string;
@@ -27,6 +29,7 @@ export default function PsychologistsItem({
   psychologist,
 }: PsychologistsItemProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+
   const {
     id,
     name,
@@ -40,6 +43,7 @@ export default function PsychologistsItem({
     initial_consultation,
     about,
   } = psychologist;
+
   return (
     <li className={s['main-wrapper']}>
       <div className={s['avatar-wrapper']}>
@@ -65,9 +69,7 @@ export default function PsychologistsItem({
             <div className={s['price-wrapper']}>
               Price / 1 hour: <span>{price_per_hour}$</span>
             </div>
-            <button className={s['like-btn']}>
-              <Icon clas={s.heart} type="heart" />
-            </button>
+            <FavoriteButton psychologistId={id} />
           </div>
         </div>
         <ul className={s['characteristics-list']}>

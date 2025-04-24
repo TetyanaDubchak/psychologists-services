@@ -1,0 +1,18 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.like-btn {
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    background-color: transparent;
+
+    .heart {
+        width: 100%;
+        height: 100%;
+        stroke: v.$dark;
+        fill: transparent;
+    }
+}

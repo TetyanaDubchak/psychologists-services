@@ -6,14 +6,13 @@ import PsychologistsPage from '@/components/PsychologistsPage';
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(false);
-  const { psychologistsList, setPsychologistsList } = usePsychologistsList();
+  const { setPsychologistsList } = usePsychologistsList();
 
   useEffect(() => {
     const getList = async () => {
       setIsLoading(true);
       try {
         const data = await getPsychologistsList();
-        // console.log('User data:', data);
         if (data) {
           setPsychologistsList(data);
         }

@@ -23,16 +23,18 @@ interface PsychologistsForMeetingsState {
   setPsychologistsClicked: (item: Psychologist) => void;
 }
 
-interface User {
+export interface User {
   uid: string;
   name: string;
   email: string;
+  favorites: {[psychologistId: string]: boolean;}
 }
 
 interface UserStore {
   user: User | null;
   setUser: (user: User) => void;
   clearUser: () => void;
+  updateFavorites: (favorites: {[psychologistId: string]: boolean})=>void
 }
 
 export const usePsychologistsList = create<PsychologistsListState>((set) => ({
@@ -65,4 +67,5 @@ export const useUserStore = create<UserStore>((set) => ({
   user: null,
   setUser: (user) => set({ user }),
   clearUser: () => set({ user: null }),
+  updateFavorites: (favorites)=> set((state)=> (state.user? {user: {...state.user, favorites}}: {})),
 }));
