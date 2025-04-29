@@ -24,6 +24,9 @@ export default function HeaderDesktop() {
           <li className={s['pages-item']}>
             <Link href="/psychologists">Psychologists</Link>
           </li>
+          <li className={s['pages-item']}>
+            <Link href="/favorites">Favorites</Link>
+          </li>
         </ul>
       </nav>
       {user ? <LogoutBlock /> : <AuthHeaderButton />}

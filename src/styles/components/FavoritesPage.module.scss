@@ -1,0 +1,9 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.wrapper {
+    padding: 80px 22px 50px 22px;
+    background-color: v.$light-1;
+}

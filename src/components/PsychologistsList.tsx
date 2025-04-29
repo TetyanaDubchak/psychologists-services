@@ -1,10 +1,15 @@
 import React from 'react';
-import { usePsychologistsList } from '@/lib/store';
 import s from '@/styles/components/PsychologistsList.module.scss';
 import PsychologistsItem from './PsychologistsItem';
+import { Psychologist } from '@/lib/stateTypes';
 
-export default function PsychologistsList() {
-  const { psychologistsList } = usePsychologistsList();
+export interface PsychologistsListProps {
+  psychologistsList: Psychologist[];
+}
+
+export default function PsychologistsList({
+  psychologistsList,
+}: PsychologistsListProps) {
   return (
     <div>
       {psychologistsList && (

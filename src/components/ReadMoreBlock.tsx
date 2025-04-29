@@ -6,12 +6,7 @@ import {
   useModalForm,
   usePsychologistsForMeetings,
 } from '@/lib/store';
-
-export interface Reviews {
-  reviewer: string;
-  rating: number;
-  comment: string;
-}
+import { Reviews } from '@/lib/stateTypes';
 
 export interface ReadMoreBlockProps {
   reviews?: Reviews[];

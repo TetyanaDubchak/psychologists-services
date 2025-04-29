@@ -1,25 +1,12 @@
+'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
 import s from '@/styles/components/PsychologistsItem.module.scss';
 import Icon from './Icon';
-import { Reviews } from '@/components/ReadMoreBlock';
+import { Psychologist } from '@/lib/stateTypes';
 import ReadMoreBlock from './ReadMoreBlock';
 
 import FavoriteButton from './FavoriteButton';
-
-export interface Psychologist {
-  id: string;
-  name: string;
-  avatar_url: string;
-  experience: string;
-  reviews?: Reviews[];
-  price_per_hour: number;
-  rating: number;
-  license: string;
-  specialization: string;
-  initial_consultation: string;
-  about: string;
-}
 
 export interface PsychologistsItemProps {
   psychologist: Psychologist;

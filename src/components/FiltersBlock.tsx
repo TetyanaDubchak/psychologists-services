@@ -1,3 +1,4 @@
+'use client';
 import React, { useState } from 'react';
 import s from '../styles/components/FiltersBlock.module.scss';
 import Icon from './Icon';
