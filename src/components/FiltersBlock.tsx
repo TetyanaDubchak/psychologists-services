@@ -1,31 +1,46 @@
 'use client';
 import React, { useState } from 'react';
+import { handleSortStartEnd } from '@/lib/filtersFunction';
 import s from '../styles/components/FiltersBlock.module.scss';
 import Icon from './Icon';
+import { usePsychologistsList } from '@/lib/store';
+import { Psychologist } from '@/lib/stateTypes';
 
 export interface FiltersBlockProps {
-  children: React.ReactNode;
+  changePsychologistList: (list: Psychologist[]) => void;
 }
 
 const filterList = [
-  'A to Z',
-  'Z to A',
-  'Less than 10$',
-  'Greater than 10$',
-  'Popular',
-  'Not popular',
-  'Show all',
+  { label: 'atoz', content: 'A to Z' },
+  { label: 'ztoa', content: 'Z to A' },
+  { label: 'less100', content: 'Less than 10$' },
+  { label: 'more100', content: 'Greater than 10$' },
+  { label: 'popular', content: 'Popular' },
+  { label: 'notpopular', content: 'Not popular' },
+  { label: 'all', content: 'Show all' },
 ];
 
-export default function FiltersBlock() {
+export default function FiltersBlock({
+  changePsychologistList,
+}: FiltersBlockProps) {
   const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
   const [filterItem, setFilterItem] = useState('Show all');
+  const { psychologistsList } = usePsychologistsList();
 
   const toggleFilterBox = () => {
     setIsFilterBoxOpen((prev) => !prev);
   };
-  const handleChooseFilter = (text: string) => {
+
+  const handleChooseFilter = (e, text: string) => {
+    const filterType = e.currentTarget.getAttribute('data-name');
     setFilterItem(text);
+    console.dir(filterType);
+
+    switch (filterType) {
+      case 'atoz':
+        changePsychologistList(handleSortStartEnd(psychologistsList));
+        break;
+    }
   };
 
   return (
@@ -48,11 +63,12 @@ export default function FiltersBlock() {
           {filterList.map((item, index) => {
             return (
               <button
+                data-name={item.label}
                 className={s['choose-button']}
-                onClick={() => handleChooseFilter(item)}
+                onClick={(e) => handleChooseFilter(e, item.content)}
                 key={index}
               >
-                {item}
+                {item.content}
               </button>
             );
           })}
