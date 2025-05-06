@@ -61,3 +61,43 @@
     padding: 8px;
     width: 100%;
 }
+
+@media screen and (min-width: v.$min-desktop) {
+    .info-text {
+        @include m.text-character(calcOutValue(16), calcOutValue(20), #191A1580);
+        margin-bottom: calcOutValue(40);
+        width: calcOutValue(438);
+    }
+
+    .form {
+        row-gap: calcOutValue(18);
+        width: calcOutValue(438);
+    }
+
+    .field {
+        @include m.inputs(calcOutValue(16), calcOutValue(18), calcOutValue(1), #191A151A, calcOutValue(12));
+        @include m.text-character(calcOutValue(16), calcOutValue(20), v.$dark);
+        margin-bottom: calcOutValue(4);
+    }
+
+    .error-text {
+        @include m.text-character(calcOutValue(12), calcOutValue(16), v.$orange-1);
+        padding-left: calcOutValue(4);
+        height: calcOutValue(16);
+    }
+
+    .eye-btn {
+        top: calcOutValue(16);
+        right: calcOutValue(16);
+        width: calcOutValue(20);
+        height: calcOutValue(20);
+    }
+
+    .submit-btn {
+        @include m.text-character(calcOutValue(16), calcOutValue(20), v.$light);
+        border-width: calcOutValue(1);
+        border-radius: calcOutValue(30);
+        margin-top: calcOutValue(20);
+        padding: calcOutValue(16);
+    }
+}

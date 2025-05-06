@@ -8,8 +8,8 @@ export interface ButtonProps {
 
 export default function Button({ type, content }: ButtonProps) {
   return (
-    <button className={s['button']} type={type}>
-      {content}
-    </button>
+    // <button className={s['button']} type={type}>
+    //   {content}
+    // </button>
   );
 }

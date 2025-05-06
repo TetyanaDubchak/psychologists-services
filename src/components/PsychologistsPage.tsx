@@ -11,9 +11,13 @@ export default function PsychologistsPage() {
   useEffect(() => {
     setSortedList(psychologistsList);
   }, [psychologistsList]);
+
   return (
     <div className={s['wrapper']}>
-      <FiltersBlock changePsychologistList={setSortedList} />
+      <FiltersBlock
+        changePsychologistList={setSortedList}
+        listToChange={psychologistsList}
+      />
       <PsychologistsList psychologistsList={sortedList} />
     </div>
   );

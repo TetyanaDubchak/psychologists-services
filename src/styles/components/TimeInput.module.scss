@@ -75,3 +75,51 @@
         color: v.$dark;
     }
 }
+
+@media screen and (min-width: v.$min-desktop) {
+    .clock-button {
+        top: calcOutValue(16);
+        right: calcOutValue(16);
+        width: calcOutValue(22);
+        height: calcOutValue(22);
+
+        svg {
+            width: calcOutValue(20);
+            height: calcOutValue(20);
+        }
+    }
+
+    .time-field {
+        @include m.inputs(calcOutValue(16), calcOutValue(18), calcOutValue(1), #191A151A, calcOutValue(12));
+        @include m.text-character(calcOutValue(16), calcOutValue(20), v.$dark);
+        margin-bottom: calcOutValue(4);
+    }
+
+    .error-text {
+        @include m.text-character(calcOutValue(12), calcOutValue(16), v.$orange-1);
+        padding-left: calcOutValue(4);
+        height: calcOutValue(16);
+    }
+
+    .time-picker-popup {
+        top: calcOutValue(60);
+        width: calcOutValue(152);
+        padding: calcOutValue(16);
+        border-radius: calcOutValue(12);
+        box-shadow: 0px calcOutValue(20) calcOutValue(69) 0px #00000012;
+    }
+
+    .popup-title {
+        @include m.text-character(calcOutValue(16), calcOutValue(24), v.$dark);
+        margin-bottom: calcOutValue(16);
+    }
+
+    .time-options {
+        row-gap: calcOutValue(4);
+        height: calcOutValue(108);
+    }
+
+    .time-option {
+        @include m.text-character(calcOutValue(16), calcOutValue(20), #191A154D);
+    }
+}

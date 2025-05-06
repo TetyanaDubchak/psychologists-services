@@ -18,14 +18,14 @@ export default function FavoriteButton({
   const { setIsLoginFormOpen } = useModalForm();
   const user = useUserStore((state) => state.user);
 
+  const isFavorite = user?.favorites && user.favorites[psychologistId];
+
   const handleToggleFavorite = async () => {
     if (!user) {
       console.log('User not logged in');
       setIsLoginFormOpen();
       return;
     }
-
-    const isFavorite = user.favorites && user.favorites[psychologistId];
 
     try {
       if (isFavorite) {
@@ -45,7 +45,7 @@ export default function FavoriteButton({
 
   return (
     <button onClick={handleToggleFavorite} className={s['like-btn']}>
-      <Icon clas={s.heart} type="heart" />
+      <Icon clas={s.heart} type={isFavorite ? 'hover-heart' : 'heart'} />
     </button>
   );
 }

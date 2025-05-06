@@ -8,3 +8,26 @@
     row-gap: 16px;
     width: 100%;
 }
+
+.load-btn {
+    @include m.auth-header(1px, v.$orange-1, v.$orange-1, 30px);
+    @include m.text-character(8px, 10px, v.$light);
+    font-weight: 500;
+    padding: 8px 24px;
+    display: block;
+    margin: 32px auto 0 auto;
+}
+
+@media screen and (min-width: v.$min-desktop) {
+    .list {
+        row-gap: calcOutValue(32);
+    }
+
+    .load-btn {
+        @include m.text-character(calcOutValue(16), calcOutValue(20), v.$light);
+        border-width:calcOutValue(1);
+        border-radius: calcOutValue(30);
+        padding: calcOutValue(14) calcOutValue(48);
+        margin-top: calcOutValue(64);
+    }
+}

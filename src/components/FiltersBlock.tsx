@@ -1,6 +1,13 @@
 'use client';
 import React, { useState } from 'react';
-import { handleSortStartEnd } from '@/lib/filtersFunction';
+import {
+  handleSortStartEnd,
+  handleSortEndStart,
+  handleFilterLess150,
+  handleFilterGreater150,
+  handleSortPopular,
+  handleSortNotPopular,
+} from '@/lib/filtersFunction';
 import s from '../styles/components/FiltersBlock.module.scss';
 import Icon from './Icon';
 import { usePsychologistsList } from '@/lib/store';
@@ -8,13 +15,14 @@ import { Psychologist } from '@/lib/stateTypes';
 
 export interface FiltersBlockProps {
   changePsychologistList: (list: Psychologist[]) => void;
+  listToChange: Psychologist[];
 }
 
 const filterList = [
   { label: 'atoz', content: 'A to Z' },
   { label: 'ztoa', content: 'Z to A' },
-  { label: 'less100', content: 'Less than 10$' },
-  { label: 'more100', content: 'Greater than 10$' },
+  { label: 'less150', content: 'Less than 150$' },
+  { label: 'more150', content: 'Greater than 150$' },
   { label: 'popular', content: 'Popular' },
   { label: 'notpopular', content: 'Not popular' },
   { label: 'all', content: 'Show all' },
@@ -22,10 +30,11 @@ const filterList = [
 
 export default function FiltersBlock({
   changePsychologistList,
+  listToChange,
 }: FiltersBlockProps) {
   const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
   const [filterItem, setFilterItem] = useState('Show all');
-  const { psychologistsList } = usePsychologistsList();
+  // const { psychologistsList } = usePsychologistsList();
 
   const toggleFilterBox = () => {
     setIsFilterBoxOpen((prev) => !prev);
@@ -38,7 +47,25 @@ export default function FiltersBlock({
 
     switch (filterType) {
       case 'atoz':
-        changePsychologistList(handleSortStartEnd(psychologistsList));
+        changePsychologistList(handleSortStartEnd(listToChange));
+        break;
+      case 'ztoa':
+        changePsychologistList(handleSortEndStart(listToChange));
+        break;
+      case 'less150':
+        changePsychologistList(handleFilterLess150(listToChange));
+        break;
+      case 'more150':
+        changePsychologistList(handleFilterGreater150(listToChange));
+        break;
+      case 'popular':
+        changePsychologistList(handleSortPopular(listToChange));
+        break;
+      case 'notpopular':
+        changePsychologistList(handleSortNotPopular(listToChange));
+        break;
+      case 'all':
+        changePsychologistList(listToChange);
         break;
     }
   };

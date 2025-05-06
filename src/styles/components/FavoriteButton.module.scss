@@ -16,3 +16,10 @@
         fill: transparent;
     }
 }
+
+@media screen and (min-width: v.$min-desktop) {
+    .like-btn {
+        width: calcOutValue(26);
+        height: calcOutValue(26);
+    }
+}

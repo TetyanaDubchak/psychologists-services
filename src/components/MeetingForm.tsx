@@ -8,7 +8,6 @@ import { schemaMeeting } from '@/lib/schema';
 import s from '../styles/components/MeetingForm.module.scss';
 import ModalLayout from './ModalLayout';
 import { useModalForm, usePsychologistsForMeetings } from '@/lib/store';
-import Icon from './Icon';
 import TimeInput from './TimeInput';
 
 export interface MeetingFormProps {
@@ -24,6 +23,7 @@ export default function MeetingForm() {
   const closeModal = () => {
     setIsMeetingFormClose();
   };
+  console.log('Open');
 
   const {
     register,

@@ -8,3 +8,7 @@
     @include m.text-character(8px,10px, v.$light);
     padding: 8px 24px;
 }
+
+@media screen and (min-width: v.$min-desktop) {
+
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Reviews } from '@/components/ReadMoreBlock';
+import { Reviews } from '@/lib/stateTypes';
 import s from '../styles/components/ReviewsList.module.scss';
 import Icon from './Icon';
 

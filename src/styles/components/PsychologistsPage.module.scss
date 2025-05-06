@@ -4,6 +4,14 @@
 @import '../function.scss';
 
 .wrapper {
+    min-height: 100vh;
     padding: 80px 22px 50px 22px;
     background-color: v.$light-1;
+}
+
+@media screen and (min-width: v.$min-desktop) {
+    .wrapper {
+        padding: calcOutValue(160) calcOutValue(128) calcOutValue(100) calcOutValue(128);
+        background-color: v.$light-1;
+    }
 }

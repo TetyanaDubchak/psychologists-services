@@ -88,3 +88,74 @@
     padding: 8px;
     width: 100%;
 }
+
+@media screen and (min-width: v.$min-desktop) {
+    .info-text {
+        @include m.text-character(calcOutValue(16), calcOutValue(20), #191A1580);
+        margin-bottom: calcOutValue(40);
+        width: calcOutValue(472);
+    }
+
+    .psychologists-wrapper {
+        column-gap: calcOutValue(14);
+        margin-bottom: calcOutValue(40);
+    }
+
+    .psychologists-picture {
+        width: calcOutValue(44);
+        height: calcOutValue(44);
+        border-radius: calcOutValue(16);
+    }
+
+    .psychologists-top-title {
+        @include m.text-character(calcOutValue(12), calcOutValue(16), v.$light-2);;
+        margin-bottom: calcOutValue(4);
+    }
+
+    .psychologists-name {
+        @include m.text-character(calcOutValue(16), calcOutValue(24), v.$dark);
+    }
+
+    .form {
+        row-gap: calcOutValue(16);
+        width: calcOutValue(472);
+    }
+
+    .field {
+        @include m.inputs(calcOutValue(16), calcOutValue(18), calcOutValue(1), #191A151A, calcOutValue(12));
+        @include m.text-character(calcOutValue(16), calcOutValue(20), v.$dark);
+        margin-bottom: calcOutValue(4);
+    }
+
+    .phone-field {
+        padding-left: calcOutValue(60);
+    }
+
+    .comment-field {
+        height: calcOutValue(116);
+    }
+
+    .error-text {
+        @include m.text-character(calcOutValue(12), calcOutValue(16), v.$orange-1);
+        padding-left: calcOutValue(4);
+        height: calcOutValue(16);
+    }
+
+    .extra-wrapper {
+        column-gap: calcOutValue(8);
+    }
+
+    .phone-start {
+        @include m.text-character(calcOutValue(16), calcOutValue(20), v.$dark);
+        left: calcOutValue(18);
+        top: calcOutValue(17);
+    }
+
+    .submit-btn {
+        @include m.text-character(calcOutValue(16), calcOutValue(20), v.$light);
+        border-width: calcOutValue(1);
+        border-radius: calcOutValue(30);
+        margin-top: calcOutValue(20);
+        padding: calcOutValue(16);
+    }
+}

@@ -44,11 +44,23 @@
     }
 }
 
-.submit-btn{
-    @include m.auth-header(1px, v.$orange-1, v.$orange-1,16px);
-    @include m.text-character(8px,10px, v.$light);
-    font-weight: 500;
-    margin-top: 20px;
-    padding: 8px;
-    width: 100%;
+@media screen and (min-width: v.$min-desktop) {
+
+    .modal {
+        border-radius: calcOutValue(30);
+        padding: calcOutValue(64);
+    }
+
+    .title {
+        @include m.text-character(calcOutValue(40), calcOutValue(48), v.$dark);
+        max-width: calcOutValue(472);
+        margin-bottom: calcOutValue(20);
+    }
+
+    .close-btn {
+        top: calcOutValue(20);
+        right: calcOutValue(20);
+        width: calcOutValue(32);
+        height: calcOutValue(32);
+    }
 }

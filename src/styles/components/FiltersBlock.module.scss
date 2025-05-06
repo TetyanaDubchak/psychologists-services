@@ -19,6 +19,7 @@
     @include m.auth-header(1px, v.$orange-1, v.$orange-1, 7px);
     @include m.text-character(8px, 10px, v.$light);
     @include m.flexibility(row,space-between,center);
+    font-weight: 500;
     padding: 8px 10px;
     min-width: 114px;
 }
@@ -56,5 +57,42 @@
 
     &:hover{
         color: v.$dark;
+    }
+}
+
+@media screen and (min-width: v.$min-desktop) {
+    .main-wrapper {
+        margin-bottom: calcOutValue(32);
+    }
+
+    .title {
+        @include m.text-character(calcOutValue(14), calcOutValue(18), v.$light-2);
+        margin-bottom: calcOutValue(8);
+    }
+
+    .input-button {
+        @include m.text-character(calcOutValue(16), calcOutValue(20), v.$light);
+        border-width: calcOutValue(1);
+        border-radius: calcOutValue(14);
+        padding: calcOutValue(14) calcOutValue(14) calcOutValue(14) calcOutValue(18);
+        min-width: calcOutValue(226);
+    }
+
+    .input-button-arrow {
+        width: calcOutValue(20);
+        height: calcOutValue(20);
+    }
+
+    .filters-wrapper {
+        top: calcOutValue(82);
+        box-shadow: 0px calcOutValue(20) calcOutValue(69) 0px #00000012;
+        width: calcOutValue(226);
+        padding: calcOutValue(14) calcOutValue(18);
+        row-gap: calcOutValue(8);
+        border-radius: calcOutValue(14);
+    }
+
+    .choose-button {
+        @include m.text-character(calcOutValue(16), calcOutValue(20), #191A154D);
     }
 }

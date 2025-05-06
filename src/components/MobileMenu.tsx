@@ -24,6 +24,7 @@ interface MobileMenuProps {
 export default function MobileMenu({ in: inProp, onClose }: MobileMenuProps) {
   const nodeRef = useRef(null);
   const { user } = useUserStore();
+
   useEffect(() => {
     handleEscapeClick(onClose);
   }, [onClose]);

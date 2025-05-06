@@ -1,4 +1,3 @@
-import MeetingForm from '@/components/MeetingForm';
 import React from 'react';
 
 export interface LayoutProps {
@@ -9,7 +8,6 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <div>
       <main>{children}</main>
-      <MeetingForm />
     </div>
   );
 }

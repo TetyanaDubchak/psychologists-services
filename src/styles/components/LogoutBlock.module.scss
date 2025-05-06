@@ -44,32 +44,28 @@
     }
 
     .icon {
-        width: 24px;
-        height: 24px;
+        width: calcOutValue(24);
+        height: calcOutValue(24);
     }
 
     .icon-box {
-        @include m.flexibility(row, center, center);
-        background-color: v.$orange-1;
-        width: 40px;
-        height: 40px;
-        border-radius: 10px;
+        width: calcOutValue(40);
+        height: calcOutValue(40);
+        border-radius: calcOutValue(10);
     }
 
     .user-wrapper {
-        @include m.flexibility(row, flex-start, center);
-        gap: 16px;
+        gap: calcOutValue(14);
     }
 
     .user-name {
-        @include m.text-character(16px, 20px, v.$dark);
-        font-weight: 500;
+        @include m.text-character(calcOutValue(16), calcOutValue(20), v.$dark);
     }
 
     .logout-btn {
-        @include m.auth-header(1px, #191A1533, transparent, 30px);
-        @include m.text-character(16px, 20px, v.$dark);
-        padding: 14px 38px;
-        font-weight: 500;
+        @include m.text-character(calcOutValue(16), calcOutValue(20), v.$dark);
+        border-width: calcOutValue(1);
+        border-radius: calcOutValue(30);
+        padding: calcOutValue(14) calcOutValue(40);
     }
 }

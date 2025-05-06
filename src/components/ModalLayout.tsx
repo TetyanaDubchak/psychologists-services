@@ -26,7 +26,9 @@ export default function ModalLayout({
 }: ModalLayoutProps) {
   const nodeRef = useRef(null);
 
-  useEffect(() => {});
+  useEffect(() => {
+    handleEscapeClick(onClose);
+  }, [onClose]);
 
   return (
     <Transition nodeRef={nodeRef} in={inProp} timeout={duration}>

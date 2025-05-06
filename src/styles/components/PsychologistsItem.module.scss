@@ -130,3 +130,92 @@
     margin-top: 8px;
     text-decoration: underline;
 }
+
+@media screen and (min-width: v.$min-desktop) {
+    .main-wrapper {
+        // width:calcOutValue(1184);
+        column-gap: calcOutValue(24);
+        padding: calcOutValue(24);
+        border-radius: calcOutValue(24);
+    }
+
+    .avatar-wrapper {
+        width: calcOutValue(120);
+        height: calcOutValue(120);
+        border-radius: calcOutValue(30);
+        border-width: calcOutValue(1);
+        padding: calcOutValue(12);
+
+        &::before {
+            top: calcOutValue(10);
+            right: calcOutValue(14);
+            width: calcOutValue(14);
+            height: calcOutValue(14);
+            border-width: calcOutValue(2);
+        }
+    }
+
+    .photo-wrapper {
+        img {
+            border-radius: calcOutValue(16);
+        }
+    }
+    .information-wrapper{
+        width: 84%;
+    }
+
+    .top-wrapper {
+        margin-bottom: calcOutValue(24);
+    }
+
+    .name-wrapper {
+        @include m.text-character(calcOutValue(16), calcOutValue(24), v.$light-2);
+        row-gap: calcOutValue(8);
+
+        span {
+            @include m.text-character(calcOutValue(24), calcOutValue(24), v.$dark);
+        }
+    }
+
+    .rating-wrapper {
+        @include m.text-character(calcOutValue(16), calcOutValue(24), v.$dark);
+        column-gap: calcOutValue(8);
+        padding-right: calcOutValue(16);
+
+        svg {
+            width: calcOutValue(16);
+            height: calcOutValue(16);
+        }
+
+        &::after {
+            width: calcOutValue(1);
+        }
+    }
+
+    .price-wrapper {
+        @include m.text-character(calcOutValue(16), calcOutValue(24), v.$dark);
+        padding-left: calcOutValue(16);
+        margin-right: calcOutValue(28);
+    }
+
+    .characteristics-list {
+        row-gap: calcOutValue(8);
+        column-gap: calcOutValue(4);
+        margin-bottom: calcOutValue(24);
+    }
+
+    .characteristics-item {
+        @include m.text-character(calcOutValue(16), calcOutValue(24), v.$light-2);
+        border-radius: calcOutValue(24);
+        padding: calcOutValue(8) calcOutValue(16);
+    }
+
+    .about-text {
+        @include m.text-character(calcOutValue(16), calcOutValue(20), #191A1580);
+    }
+
+    .read-btn {
+        @include m.text-character(calcOutValue(16), calcOutValue(24), v.$dark);
+        margin-top: calcOutValue(14);
+    }
+}

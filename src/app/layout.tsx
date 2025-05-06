@@ -5,6 +5,7 @@ import '@/styles/main.scss';
 import Header from '@/components/Header';
 import LoginForm from '@/components/LoginForm';
 import RegistrationForm from '@/components/RegistrationForm';
+import MeetingForm from '@/components/MeetingForm';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -23,6 +24,7 @@ export default function RootLayout({
         {children}
         <LoginForm />
         <RegistrationForm />
+        <MeetingForm />
       </body>
     </html>
   );

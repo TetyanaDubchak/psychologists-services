@@ -23,6 +23,7 @@
     @include m.flexibility(row,center,center);
     @include m.text-character(10px,10px,v.$orange-1);
     width: 22px;
+    font-weight: 500;
     height: 22px;
     background-color: #FC832C33;
     border-radius: 50%;
@@ -46,4 +47,44 @@
 
 .comment{
     @include m.text-character(8px,10px,#191A1580);
+}
+
+@media screen and (min-width: v.$min-desktop) {
+    .list {
+        row-gap: calcOutValue(24);
+        margin-bottom: calcOutValue(40);
+    }
+
+    .item {
+        row-gap: calcOutValue(16);
+    }
+
+    .top-wrapper {
+        column-gap: calcOutValue(12);
+    }
+
+    .avatar-wrapper {
+        @include m.text-character(calcOutValue(20), calcOutValue(20), v.$orange-1);
+        width: calcOutValue(44);
+        height: calcOutValue(44);
+    }
+
+    .name {
+        @include m.text-character(calcOutValue(16), calcOutValue(20), v.$dark);
+        margin-bottom: calcOutValue(4);
+    }
+
+    .rating {
+        @include m.text-character(calcOutValue(14), calcOutValue(18), v.$dark);
+
+        svg {
+            width: calcOutValue(16);
+            height: calcOutValue(16);
+            margin-right: calcOutValue(8);
+        }
+    }
+
+    .comment {
+        @include m.text-character(calcOutValue(16), calcOutValue(20), #191A1580);
+    }
 }
