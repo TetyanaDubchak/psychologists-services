@@ -1,16 +1,17 @@
 import { database,db } from "./firebaseConfig";
 import { ref, get } from "firebase/database";
 import { doc, updateDoc, deleteField, getDoc } from "firebase/firestore";
-import { useUserStore, User } from "./store";
+import { useUserStore } from "./store";
+import { User } from "@/lib/stateTypes";
 
 export const getPsychologistsList = async() => {
-  const userRef = ref(database, 'psychologists');
+  const userRef = ref(database, 'psychologist');
   try {
       const snapshot = await get(userRef);
     return snapshot.exists() ? snapshot.val() : null;
   } catch (error) {
     console.error("Error fetching psychologists:", error);
-    return null;
+    throw error;
   }
 };
 

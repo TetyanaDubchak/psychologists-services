@@ -34,7 +34,6 @@ export default function FiltersBlock({
 }: FiltersBlockProps) {
   const [isFilterBoxOpen, setIsFilterBoxOpen] = useState(false);
   const [filterItem, setFilterItem] = useState('Show all');
-  // const { psychologistsList } = usePsychologistsList();
 
   const toggleFilterBox = () => {
     setIsFilterBoxOpen((prev) => !prev);

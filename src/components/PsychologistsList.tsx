@@ -19,13 +19,11 @@ export default function PsychologistsList({
 
   return (
     <div>
-      {psychologistsList && (
-        <ul className={s['list']}>
-          {visiblePsychologists.map((item) => {
-            return <PsychologistsItem key={item.id} psychologist={item} />;
-          })}
-        </ul>
-      )}
+      <ul className={s['list']}>
+        {visiblePsychologists.map((item) => {
+          return <PsychologistsItem key={item.id} psychologist={item} />;
+        })}
+      </ul>
       {visibleCount < psychologistsList.length && (
         <button className={s['load-btn']} onClick={handleAddVisibleItem}>
           Load more

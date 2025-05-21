@@ -13,8 +13,9 @@
     @include m.flexibility(row,space-between,center);
 }
 
+
 .nav-wrapper{
-    @include m.flexibility(row, flex-start,center);
+    @include m.flexibility(row, flex-start,flex-start);
     column-gap: calcOutValue(130);
 }
 
@@ -25,4 +26,16 @@
 
 .pages-item{
     @include m.text-character(calcOutValue(16),calcOutValue(20), v.$dark);
+    @include m.flexibility(column, flex-start, center);
+    row-gap: calcOutValue(4);
+    height: calcOutValue(32);
+}
+
+.pages-item-active::after{
+    content: '';
+    display: block;
+    width: calcOutValue(8);
+    height: calcOutValue(8);
+    background-color: v.$orange-1;
+    border-radius: 50%;
 }

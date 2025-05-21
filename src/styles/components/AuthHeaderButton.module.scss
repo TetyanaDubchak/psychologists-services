@@ -4,22 +4,21 @@
 @import '../function.scss';
 
 .wrapper{
-    display: flex;
-    column-gap: 10px;
+    @include m.flexibility(row,space-between,center);
 }
 
 .log-btn{
     @include m.auth-header(1px,#191A1533, transparent,30px);
-    @include m.text-character(10px, 12px,v.$dark);
+    @include m.text-character(16px, 20px,v.$dark);
     font-weight: 500;
-    padding: 6px 26px;
+    padding: 14px 40px;
 }
 
 .registr-btn{
     @include m.auth-header(1px, v.$orange-1, v.$orange-1, 30px);
-    @include m.text-character(10px,12px, v.$light);
+    @include m.text-character(16px,20px, v.$light);
     font-weight: 500;
-    padding: 6px 26px;
+    padding: 14px 40px;
 }
 
 @media screen and (min-width: v.$min-desktop) {

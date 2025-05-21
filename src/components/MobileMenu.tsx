@@ -1,6 +1,7 @@
 'use client';
 import { Transition } from 'react-transition-group';
 import React, { useEffect, useRef } from 'react';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import s from '../styles/components/MobileMenu.module.scss';
 import Logo from './Logo';
@@ -8,7 +9,6 @@ import { useUserStore } from '@/lib/store';
 import Link from 'next/link';
 import { duration, defaultStyle, transitionStyles } from '@/lib/transition';
 import {
-  handleBackdropClick,
   handleEscapeClick,
   handleBlockBody,
   handleUnBlockBody,
@@ -23,6 +23,7 @@ interface MobileMenuProps {
 
 export default function MobileMenu({ in: inProp, onClose }: MobileMenuProps) {
   const nodeRef = useRef(null);
+  const pathname = usePathname();
   const { user } = useUserStore();
 
   useEffect(() => {
@@ -50,12 +51,23 @@ export default function MobileMenu({ in: inProp, onClose }: MobileMenuProps) {
           </div>
           <div className={s['middle-wrapper']}>
             <ul className={s['pages-wrapper']}>
-              <li className={s['pages-item']}>
+              <li
+                className={`${s['pages-item']} ${pathname === '/' && s['pages-item-active']}`}
+              >
                 <Link href="/">Home</Link>
               </li>
-              <li className={s['pages-item']}>
+              <li
+                className={`${s['pages-item']} ${pathname === '/psychologists' && s['pages-item-active']}`}
+              >
                 <Link href="/psychologists">Psychologists</Link>
               </li>
+              {user && (
+                <li
+                  className={`${s['pages-item']} ${pathname === '/favorites' && s['pages-item-active']}`}
+                >
+                  <Link href="/favorites">Favorites</Link>
+                </li>
+              )}
             </ul>
           </div>
           <div className={s['bottom-wrapper']}>

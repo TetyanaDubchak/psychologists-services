@@ -9,7 +9,10 @@
     width: 100%;
     padding: 14px;
     border-bottom: 1px solid #191A151A;
-    background: #FBFBFB;
+    background: v.$light-1;
+}
+
+.wrapper-home{
     background: linear-gradient(135deg, rgba(251, 251, 251, 1) 1%, rgba(251, 246, 242, 1) 63%, rgba(251, 240, 231, 1) 73%, rgba(251, 235, 223, 1) 87%);
 }
 

@@ -1,6 +1,7 @@
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { useUserStore } from '@/lib/store';
-import s from '../styles/components/LogoutBlock.module.scss';
+import s from '@/styles/components/LogoutBlock.module.scss';
 import Icon from './Icon';
 import { logout } from '@/lib/apiAuth';
 
@@ -9,12 +10,13 @@ export interface LogoutBlockProps {
 }
 
 export default function LogoutBlock() {
-  const { user, clearUser } = useUserStore();
-  console.log('User', user);
+  const router = useRouter();
+  const { user } = useUserStore();
 
   const handleLogout = async () => {
     try {
       await logout();
+      router.push('/');
       console.log('Logout success');
     } catch (error) {
       console.error('Logout', error);

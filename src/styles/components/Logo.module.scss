@@ -4,7 +4,7 @@
 @import '../function.scss';
 
 .main{
-    @include m.text-character(12px,16px,v.$dark);
+    @include m.text-character(20px,24px,v.$dark);
     font-weight: 700;
 
     span{

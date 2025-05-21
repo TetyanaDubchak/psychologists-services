@@ -1,0 +1,27 @@
+@use '../../styles/mixins' as m;
+@use '../../styles/variables' as v;
+
+@import '../function.scss';
+
+.wrapper{
+    @include m.flexibility(column,center,center);
+    gap: 60px;
+    width: 100%;
+    min-height: 100vh;
+    background-color: v.$light-1;
+}
+
+.title{
+    @include m.text-character(24px,24px, v.$dark);
+    font-weight: 500;
+}
+
+@media screen and (min-width: v.$min-desktop) {
+    .wrapper{
+        gap: calcOutValue(60);
+    }
+    
+    .title{
+        @include m.text-character(calcOutValue(24),calcOutValue(24), v.$dark);
+    }
+}
