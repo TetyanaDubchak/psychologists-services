@@ -12,6 +12,13 @@ const inter = Inter({
   weight: ['400', '500', '600', '700'],
 });
 
+export const metadata = {
+  title: 'Psychologists.Services',
+  icons: {
+    icon: '/favicon.svg',
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

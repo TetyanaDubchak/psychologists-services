@@ -2,9 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import s from '@/styles/components/Logo.module.scss';
 
-export default function Logo() {
+export interface LogoProps {
+  handleClose?: () => void;
+}
+
+export default function Logo({ handleClose }: LogoProps) {
   return (
-    <Link href="/">
+    <Link onClick={handleClose} href="/">
       <p className={s.main}>
         <span>psychologists.</span>
         services

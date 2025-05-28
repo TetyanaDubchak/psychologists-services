@@ -1,6 +1,6 @@
 'use client';
 import React from 'react';
-import { useModalForm } from '@/lib/store';
+import { useModalForm, useMobileMenu } from '@/lib/store';
 import s from '@/styles/components/AuthHeaderButton.module.scss';
 
 export interface AuthHeaderButtonProps {
@@ -9,12 +9,27 @@ export interface AuthHeaderButtonProps {
 
 export default function AuthHeaderButton() {
   const { setIsLoginFormOpen, setIsRegistrationFormOpen } = useModalForm();
+  const { isMobileMenuOpen, setMobileMenuClose } = useMobileMenu();
+
+  const handleOpenLoginForm = () => {
+    if (isMobileMenuOpen) {
+      setMobileMenuClose();
+    }
+    setIsLoginFormOpen();
+  };
+
+  const handleOpenRegistrationForm = () => {
+    if (isMobileMenuOpen) {
+      setMobileMenuClose();
+    }
+    setIsRegistrationFormOpen();
+  };
 
   return (
     <ul className={s['wrapper']}>
       <li>
         <button
-          onClick={() => setIsLoginFormOpen()}
+          onClick={handleOpenLoginForm}
           className={s['log-btn']}
           type="button"
         >
@@ -23,7 +38,7 @@ export default function AuthHeaderButton() {
       </li>
       <li>
         <button
-          onClick={() => setIsRegistrationFormOpen()}
+          onClick={handleOpenRegistrationForm}
           className={s['registr-btn']}
           type="button"
         >

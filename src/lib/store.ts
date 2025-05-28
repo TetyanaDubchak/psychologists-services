@@ -1,10 +1,17 @@
 import { create } from "zustand";
-import {PsychologistsListState,ModalFormState,PsychologistsForMeetingsState,UserStore } from "@/lib/stateTypes";
+import {MobileMenuState,PsychologistsListState,ModalFormState,PsychologistsForMeetingsState,UserStore } from "@/lib/stateTypes";
 
 export const usePsychologistsList = create<PsychologistsListState>((set) => ({
     psychologistsList: [],
         
     setPsychologistsList:(list)=> set(()=>({psychologistsList: list})),
+}))
+
+export const useMobileMenu = create<MobileMenuState>((set) => ({
+  isMobileMenuOpen: false,
+
+  setMobileMenuOpen: () => set(() => ({ isMobileMenuOpen: true })),
+  setMobileMenuClose: () => set(() => ({ isMobileMenuOpen: false })),
 }))
 
 export const useModalForm = create<ModalFormState>((set) => ({

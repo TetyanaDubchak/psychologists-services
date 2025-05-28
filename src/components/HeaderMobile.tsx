@@ -1,27 +1,25 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import Logo from './Logo';
 import s from '../styles/components/HeaderMobile.module.scss';
 import MobileMenu from './MobileMenu';
+import { useMobileMenu } from '@/lib/store';
 
 export default function HeaderMobile() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleMobileMenu = () => {
-    setIsMenuOpen((prev) => !prev);
-  };
+  const { isMobileMenuOpen, setMobileMenuOpen, setMobileMenuClose } =
+    useMobileMenu();
 
   return (
     <div className={s.wrapper}>
       <Logo />
       <button
-        onClick={handleMobileMenu}
+        onClick={setMobileMenuOpen}
         className={s['burger-btn']}
         type="button"
       >
         <span className={s['burger']}></span>
       </button>
-      <MobileMenu in={isMenuOpen} onClose={handleMobileMenu} />
+      <MobileMenu in={isMobileMenuOpen} onClose={setMobileMenuClose} />
     </div>
   );
 }

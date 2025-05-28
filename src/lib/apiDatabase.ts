@@ -5,7 +5,7 @@ import { useUserStore } from "./store";
 import { User } from "@/lib/stateTypes";
 
 export const getPsychologistsList = async() => {
-  const userRef = ref(database, 'psychologist');
+  const userRef = ref(database, 'psychologists');
   try {
       const snapshot = await get(userRef);
     return snapshot.exists() ? snapshot.val() : null;

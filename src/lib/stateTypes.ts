@@ -24,6 +24,11 @@ export interface PsychologistsListState {
   setPsychologistsList: (list: Psychologist[]) => void;
 }
 
+export interface MobileMenuState{
+  isMobileMenuOpen: boolean;
+  setMobileMenuOpen: () => void;
+  setMobileMenuClose: () => void}
+
 export interface ModalFormState {
   isLoginFormOpen: boolean;
   isRegistrationFormOpen: boolean;

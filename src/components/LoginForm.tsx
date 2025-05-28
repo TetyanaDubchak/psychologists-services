@@ -18,10 +18,16 @@ type FormData = yup.InferType<typeof schemaLogin>;
 
 export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
-  const { isLoginFormOpen, setIsLoginFormClose } = useModalForm();
+  const { isLoginFormOpen, setIsLoginFormClose, setIsRegistrationFormOpen } =
+    useModalForm();
 
   const closeModal = () => {
     setIsLoginFormClose();
+  };
+
+  const handleOpenRegistration = () => {
+    setIsLoginFormClose();
+    setIsRegistrationFormOpen();
   };
 
   const {
@@ -79,6 +85,17 @@ export default function LoginForm() {
             {showPassword ? <Icon type="eye-off" /> : <Icon type="eye" />}
           </button>
         </div>
+
+        <div className={s['registration-wrapper']}>
+          <p className={s['registration-text']}>Don`t login yet?</p>
+          <button
+            onClick={handleOpenRegistration}
+            className={s['registration-button']}
+          >
+            Registration
+          </button>
+        </div>
+        <button className={s['forgot-password']}>Forgot password?</button>
         <button
           className={s['submit-btn']}
           type="submit"

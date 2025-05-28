@@ -19,12 +19,18 @@ export default function FavoritesPage() {
   }, [favoritesObject]);
 
   return (
-    <div className={s['wrapper']}>
-      <FiltersBlock
-        changePsychologistList={setSortedList}
-        listToChange={result}
-      />
-      <PsychologistsList psychologistsList={sortedList} />
-    </div>
+    <>
+      {sortedList.length > 0 ? (
+        <div className={s['wrapper']}>
+          <FiltersBlock
+            changePsychologistList={setSortedList}
+            listToChange={result}
+          />
+          <PsychologistsList psychologistsList={sortedList} />
+        </div>
+      ) : (
+        <p> No favorites psychologists</p>
+      )}
+    </>
   );
 }

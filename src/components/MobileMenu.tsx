@@ -30,6 +30,10 @@ export default function MobileMenu({ in: inProp, onClose }: MobileMenuProps) {
     handleEscapeClick(onClose);
   }, [onClose]);
 
+  const handleClickOnLink = () => {
+    onClose();
+  };
+
   return (
     <Transition nodeRef={nodeRef} in={inProp} timeout={duration} unmountOnExit>
       {(state) => (
@@ -39,7 +43,7 @@ export default function MobileMenu({ in: inProp, onClose }: MobileMenuProps) {
           style={{ ...defaultStyle, ...transitionStyles[state] }}
         >
           <div className={s['top-wrapper']}>
-            <Logo />
+            <Logo handleClose={handleClickOnLink} />
             <button onClick={onClose} className={s['close-btn']} type="button">
               <Image
                 width={20}
@@ -54,18 +58,24 @@ export default function MobileMenu({ in: inProp, onClose }: MobileMenuProps) {
               <li
                 className={`${s['pages-item']} ${pathname === '/' && s['pages-item-active']}`}
               >
-                <Link href="/">Home</Link>
+                <Link onClick={handleClickOnLink} href="/">
+                  Home
+                </Link>
               </li>
               <li
                 className={`${s['pages-item']} ${pathname === '/psychologists' && s['pages-item-active']}`}
               >
-                <Link href="/psychologists">Psychologists</Link>
+                <Link onClick={handleClickOnLink} href="/psychologists">
+                  Psychologists
+                </Link>
               </li>
               {user && (
                 <li
                   className={`${s['pages-item']} ${pathname === '/favorites' && s['pages-item-active']}`}
                 >
-                  <Link href="/favorites">Favorites</Link>
+                  <Link onClick={handleClickOnLink} href="/favorites">
+                    Favorites
+                  </Link>
                 </li>
               )}
             </ul>

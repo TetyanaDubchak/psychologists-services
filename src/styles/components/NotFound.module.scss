@@ -6,26 +6,35 @@
 .wrapper {
     @include m.flexibility(column, center, center);
     width: 100%;
+    gap: 30px;
     min-height: 100vh;
     background-color: v.$light-1;
 }
 
 .title {
-    @include m.text-character(30px, 30px, v.$dark);
+    @include m.text-character(24px, 24px, v.$dark);
     font-weight: 500;
+    text-align: center
 }
 
 .subtitle{
-    @include m.text-character(24px, 24px, v.$dark);
+    @include m.text-character(18px, 20px, v.$dark);
     font-weight: 500;
 }
 
 @media screen and (min-width: v.$min-desktop) {
     .wrapper {
-        gap: calcOutValue(60);
+        gap: calcOutValue(40);
     }
 
     .title {
-        @include m.text-character(calcOutValue(24), calcOutValue(24), v.$dark);
+        @include m.text-character(24px, 24px, v.$dark);
+        font-weight: 500;
+        text-align: center
+    }
+    
+    .subtitle{
+        @include m.text-character(18px, 20px, v.$dark);
+        font-weight: 500;
     }
 }
