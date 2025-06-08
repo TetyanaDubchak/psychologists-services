@@ -26,3 +26,7 @@ export const schemaMeeting = yup.object({
   times: yup.string(),
   comment: yup.string()
 }).required();
+
+export const schemaResetPassword = yup.object({
+  email: yup.string().email("Invalid email").required("Email is required"),
+}).required();

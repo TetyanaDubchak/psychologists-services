@@ -33,12 +33,15 @@ export interface ModalFormState {
   isLoginFormOpen: boolean;
   isRegistrationFormOpen: boolean;
   isMeetingFormOpen: boolean;
+  isResetPasswordFormOpen:boolean
   setIsLoginFormOpen: () => void;
   setIsLoginFormClose: () => void;
   setIsRegistrationFormOpen: () => void;
   setIsRegistrationFormClose: () => void;
   setIsMeetingFormOpen: () => void;
   setIsMeetingFormClose: () => void;
+  setIsResetPasswordFormOpen: () => void;
+  setIsResetPasswordFormClose: () => void;
 }
 
 export interface PsychologistsForMeetingsState {

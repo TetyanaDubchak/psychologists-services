@@ -18,6 +18,7 @@ export const useModalForm = create<ModalFormState>((set) => ({
   isLoginFormOpen: false,
   isRegistrationFormOpen: false,
   isMeetingFormOpen: false,
+  isResetPasswordFormOpen: false,
 
   setIsLoginFormOpen: () => set(() => ({ isLoginFormOpen: true })),
   setIsLoginFormClose: () => set(() => ({ isLoginFormOpen: false })),
@@ -27,6 +28,9 @@ export const useModalForm = create<ModalFormState>((set) => ({
   
   setIsMeetingFormOpen: () => set(() => ({ isMeetingFormOpen: true })),
   setIsMeetingFormClose:()=> set(()=>({isMeetingFormOpen: false})),
+
+  setIsResetPasswordFormOpen: () => set(() => ({ isResetPasswordFormOpen: true })),
+  setIsResetPasswordFormClose:()=> set(()=>({isResetPasswordFormOpen: false})),
 }))
 
 export const usePsychologistsForMeetings= create<PsychologistsForMeetingsState>((set) => ({

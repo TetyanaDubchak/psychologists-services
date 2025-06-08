@@ -54,6 +54,23 @@
     }
 }
 
+.login-wrapper{
+    @include m.flexibility(row,flex-start,center);
+    padding-left: 10px;
+    width: 100%;
+    column-gap: 4px
+}
+
+.login-text{
+    @include m.text-character(8px, 10px, v.$dark); 
+}
+
+.login-button {
+    @include m.text-character(8px, 10px, v.$dark);
+    text-decoration: underline;
+    background-color: transparent
+}
+
 .submit-btn {
     @include m.auth-header(1px, v.$orange-1, v.$orange-1, 16px);
     @include m.text-character(8px, 10px, v.$light);
@@ -92,6 +109,19 @@
         right: calcOutValue(16);
         width: calcOutValue(20);
         height: calcOutValue(20);
+    }
+
+    .login-wrapper{
+        padding-left: calcOutValue(10);
+        column-gap: calcOutValue(4)
+    }
+    
+    .login-text{
+        @include m.text-character(calcOutValue(16), calcOutValue(20), v.$dark); 
+    }
+    
+    .login-button {
+        @include m.text-character(calcOutValue(16), calcOutValue(20), v.$dark);
     }
 
     .submit-btn {

@@ -6,8 +6,8 @@ import * as yup from 'yup';
 import { schemaLogin } from '@/lib/schema';
 import s from '../styles/components/LoginForm.module.scss';
 import ModalLayout from './ModalLayout';
-import { useModalForm } from '@/lib/store';
-import { login } from '@/lib/apiAuth';
+import { useModalForm,useUserStore } from '@/lib/store';
+import { login,sendPasswordReset } from '@/lib/apiAuth';
 import Icon from './Icon';
 
 export interface LoginFormProps {
@@ -20,6 +20,8 @@ export default function LoginForm() {
   const [showPassword, setShowPassword] = useState(false);
   const { isLoginFormOpen, setIsLoginFormClose, setIsRegistrationFormOpen } =
     useModalForm();
+  const { user } = useUserStore();
+    console.log("User", user);
 
   const closeModal = () => {
     setIsLoginFormClose();
@@ -29,6 +31,10 @@ export default function LoginForm() {
     setIsLoginFormClose();
     setIsRegistrationFormOpen();
   };
+
+  const handleResetPassword = () => {
+     sendPasswordReset();
+  }
 
   const {
     register,

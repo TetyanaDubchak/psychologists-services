@@ -1,7 +1,8 @@
-import {signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import {signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth,sendPasswordResetEmail } from "firebase/auth";
 import { auth,db } from "./firebaseConfig";
 import { doc, setDoc, getDoc } from "firebase/firestore";
-import { useUserStore, User } from "./store";
+import { useUserStore } from "./store";
+import { User } from "./stateTypes";
 
 const registration = async (email: string, password: string, name:string) => {
   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -32,4 +33,9 @@ const logout = async () => {
   useUserStore.getState().clearUser();
 }
 
-export { registration, login, logout };
+const sendPasswordReset = async (email: string) => {
+  const auth = getAuth();
+  await sendPasswordResetEmail(auth, email);
+};
+
+export { registration, login, logout, sendPasswordReset };
